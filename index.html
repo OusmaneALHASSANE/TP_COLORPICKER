@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>COLOR PICKER</title>
+</head>
+
+
+
+<body>
+<script type="text/javascript">
+        var rgCanvas = document.createElement('canvas');
+        rgCanvas.width = 256;
+        rgCanvas.height = 256;
+        rgCanvas.style.border = '3px solid black';
+        for (g = 0; g < 256; g++){
+            for (r = 0; r < 256; r++){
+                var context = rgCanvas.getContext('2d');
+                context.beginPath();
+                context.moveTo(r,g);
+                context.strokeStyle = 'rgb(' + r + ', ' + g + ', 0)';
+                context.lineTo(r+1,g+1);
+                context.stroke();
+                context.closePath();
+            }
+        }
+
+        var bCanvas = document.createElement('canvas');
+        bCanvas.width = 20;
+        bCanvas.height = 256;
+        bCanvas.style.border = '3px solid black';       
+        for (b = 0; b < 256; b++){
+            var context = bCanvas.getContext('2d');
+            context.beginPath();
+            context.moveTo(0,b);
+            context.strokeStyle = 'rgb(' + 0 + ', ' + 0 + ', ' + b + ')';
+            context.lineTo(20, b);
+            context.stroke();
+            context.closePath();
+        }
+
+        document.body.appendChild(rgCanvas);
+        document.body.appendChild(bCanvas);
+    </script>
+</body>
+</html>
+
